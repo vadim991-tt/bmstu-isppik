@@ -1,9 +1,9 @@
-    package com.example.myapp.service;
+   package bmstu.isppik.isppik_server.service;
 
-import com.example.myapp.model.NewsItem;
-import com.example.myapp.model.Source;
-import com.example.myapp.repository.NewsRepository;
-import com.example.myapp.repository.SourceRepository;
+import bmstu.isppik.isppik_server.model.NewsItem;
+import bmstu.isppik.isppik_server.model.Source;
+import bmstu.isppik.isppik_server.repository.NewsRepository;
+import bmstu.isppik.isppik_server.repository.SourceRepository;
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.SyndFeedInput;

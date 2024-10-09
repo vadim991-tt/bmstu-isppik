@@ -1,7 +1,8 @@
-package com.example.myapp.config;
+package bmstu.isppik.isppik_server.config;
 
-import com.example.myapp.service.UserService;
-import org.springframework.context.annotation.*;
+import bmstu.isppik.isppik_server.service.UserService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

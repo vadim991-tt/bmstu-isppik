@@ -1,4 +1,4 @@
-package com.example.myapp.dto;
+package bmstu.isppik.isppik_server.dto;
 
 @Data
 public class UserDto {

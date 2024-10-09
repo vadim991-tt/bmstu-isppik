@@ -1,7 +1,7 @@
-package com.example.myapp.service;
+package bmstu.isppik.isppik_server.service;
 
-import com.example.myapp.model.User;
-import com.example.myapp.repository.UserRepository;
+import bmstu.isppik.isppik_server.model.User;
+import bmstu.isppik.isppik_server.repository.UserRepository;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 

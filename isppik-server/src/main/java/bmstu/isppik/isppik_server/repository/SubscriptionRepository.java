@@ -1,7 +1,7 @@
-package com.example.myapp.repository;
+package bmstu.isppik.isppik_server.repository;
 
-import com.example.myapp.model.Subscription;
-import com.example.myapp.model.SubscriptionId;
+import bmstu.isppik.isppik_server.model.Subscription;
+import bmstu.isppik.isppik_server.model.SubscriptionId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

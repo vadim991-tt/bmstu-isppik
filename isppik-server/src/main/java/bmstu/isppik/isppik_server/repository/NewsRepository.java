@@ -1,6 +1,6 @@
-package com.example.myapp.repository;
+package bmstu.isppik.isppik_server.repository;
 
-import com.example.myapp.model.NewsItem;
+import bmstu.isppik.isppik_server.model.NewsItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

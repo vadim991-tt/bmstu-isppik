@@ -1,4 +1,4 @@
-package com.example.myapp.dto.user;
+package bmstu.isppik.isppik_server.dto.user;
 
 @Data
 public class ChangePasswordRequestDto {

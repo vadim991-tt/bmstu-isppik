@@ -1,8 +1,8 @@
-package com.example.myapp.model;
+package bmstu.isppik.isppik_server.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.*;
 
 @Entity

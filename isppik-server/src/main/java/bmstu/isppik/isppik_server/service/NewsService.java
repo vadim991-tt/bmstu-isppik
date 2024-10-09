@@ -1,12 +1,12 @@
-package com.example.myapp.service;
+package bmstu.isppik.isppik_server.service;
 
-import com.example.myapp.dto.NewsDto;
-import com.example.myapp.model.NewsItem;
-import com.example.myapp.model.Subscription;
-import com.example.myapp.model.UserNewsInteraction;
-import com.example.myapp.repository.NewsRepository;
-import com.example.myapp.repository.SubscriptionRepository;
-import com.example.myapp.repository.UserNewsInteractionRepository;
+import bmstu.isppik.isppik_server.dto.NewsDto;
+import bmstu.isppik.isppik_server.model.NewsItem;
+import bmstu.isppik.isppik_server.model.Subscription;
+import bmstu.isppik.isppik_server.model.UserNewsInteraction;
+import bmstu.isppik.isppik_server.repository.NewsRepository;
+import bmstu.isppik.isppik_server.repository.SubscriptionRepository;
+import bmstu.isppik.isppik_server.repository.UserNewsInteractionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

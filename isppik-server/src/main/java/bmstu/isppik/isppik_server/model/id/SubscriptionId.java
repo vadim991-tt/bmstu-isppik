@@ -1,7 +1,10 @@
-package com.example.myapp.model;
+package bmstu.isppik.isppik_server.model.id;
+
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Objects;
+
+;
 
 @Data
 public class SubscriptionId implements Serializable {

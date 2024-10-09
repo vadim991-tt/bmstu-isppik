@@ -1,6 +1,7 @@
-package com.example.myapp.model;
+package bmstu.isppik.isppik_server.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Data
 @Entity

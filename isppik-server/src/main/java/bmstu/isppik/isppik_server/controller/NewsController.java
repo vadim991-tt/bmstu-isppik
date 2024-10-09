@@ -1,7 +1,7 @@
-package com.example.myapp.controller;
+package bmstu.isppik.isppik_server.controller;
 
-import com.example.myapp.dto.NewsDto;
-import com.example.myapp.service.NewsService;
+import bmstu.isppik.isppik_server.dto.NewsDto;
+import bmstu.isppik.isppik_server.service.NewsService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.security.Principal;

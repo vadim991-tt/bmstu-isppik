@@ -1,11 +1,14 @@
-package com.example.myapp.model;
+package bmstu.isppik.isppik_server.model.id;
+
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Objects;
 
+@Data
 public class UserNewsInteractionId implements Serializable {
 
     private Long userId;
+
     private Long newsId;
 
     // Конструкторы
@@ -16,21 +19,5 @@ public class UserNewsInteractionId implements Serializable {
         this.newsId = newsId;
     }
 
-    // equals и hashCode
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserNewsInteractionId that = (UserNewsInteractionId) o;
-
-        return Objects.equals(userId, that.userId) &&
-               Objects.equals(newsId, that.newsId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userId, newsId);
-    }
 }

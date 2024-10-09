@@ -1,3 +1,5 @@
+package bmstu.isppik.isppik_server;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class PasswordGenerator {

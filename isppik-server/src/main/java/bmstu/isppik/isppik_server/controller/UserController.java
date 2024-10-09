@@ -1,9 +1,9 @@
-package com.example.myapp.controller;
+package bmstu.isppik.isppik_server.controller;
 
-import com.example.myapp.dto.UserDto;
-import com.example.myapp.dto.user.ChangePasswordRequestDto;
-import com.example.myapp.model.User;
-import com.example.myapp.service.UserService;
+import bmstu.isppik.isppik_server.dto.UserDto;
+import bmstu.isppik.isppik_server.dto.user.ChangePasswordRequestDto;
+import bmstu.isppik.isppik_server.model.User;
+import bmstu.isppik.isppik_server.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;

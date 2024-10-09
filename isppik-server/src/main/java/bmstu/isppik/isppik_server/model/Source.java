@@ -1,8 +1,7 @@
-package com.example.myapp.model;
+package bmstu.isppik.isppik_server.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-
-import javax.persistence.*;
 
 @Entity
 @Table(name = "sources")

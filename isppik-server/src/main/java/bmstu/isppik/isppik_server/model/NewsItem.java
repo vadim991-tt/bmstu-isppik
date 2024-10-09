@@ -1,8 +1,8 @@
-package com.example.myapp.model;
+package bmstu.isppik.isppik_server.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity

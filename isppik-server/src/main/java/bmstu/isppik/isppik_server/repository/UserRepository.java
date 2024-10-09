@@ -1,6 +1,6 @@
-package com.example.myapp.repository;
+package bmstu.isppik.isppik_server.repository;
 
-import com.example.myapp.model.User;
+import bmstu.isppik.isppik_server.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
