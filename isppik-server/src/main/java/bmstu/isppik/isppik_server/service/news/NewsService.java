@@ -1,12 +1,10 @@
-package bmstu.isppik.isppik_server.service;
+package bmstu.isppik.isppik_server.service.news;
 
-import bmstu.isppik.isppik_server.dto.NewsDto;
-import bmstu.isppik.isppik_server.model.NewsItem;
-import bmstu.isppik.isppik_server.model.Subscription;
-import bmstu.isppik.isppik_server.model.UserNewsInteraction;
-import bmstu.isppik.isppik_server.repository.NewsRepository;
-import bmstu.isppik.isppik_server.repository.SubscriptionRepository;
-import bmstu.isppik.isppik_server.repository.UserNewsInteractionRepository;
+import bmstu.isppik.isppik_server.dto.news.NewsDto;
+import bmstu.isppik.isppik_server.model.news.NewsItem;
+import bmstu.isppik.isppik_server.repository.news.NewsRepository;
+import bmstu.isppik.isppik_server.repository.news.SubscriptionRepository;
+import bmstu.isppik.isppik_server.repository.news.UserNewsInteractionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +17,9 @@ import java.util.stream.Collectors;
 public class NewsService {
 
     private final NewsRepository newsRepository;
+
     private final SubscriptionRepository subscriptionRepository;
+
     private final UserNewsInteractionRepository interactionRepository;
 
     // Получение всех новостей с курсорной пагинацией по времени и исключением просмотренных новостей
@@ -57,45 +57,6 @@ public class NewsService {
                 .collect(Collectors.toList());
     }
 
-    // Подписка на источник новостей
-    public void subscribe(Long userId, Long sourceId) {
-        if (!subscriptionRepository.existsByUserIdAndSourceId(userId, sourceId)) {
-            Subscription subscription = new Subscription();
-            subscription.setUserId(userId);
-            subscription.setSourceId(sourceId);
-            subscriptionRepository.save(subscription);
-        }
-    }
-
-    // Отписка от источника новостей
-    public void unsubscribe(Long userId, Long sourceId) {
-        subscriptionRepository.deleteByUserIdAndSourceId(userId, sourceId);
-    }
-
-    // Лайк новости
-    public void likeNews(Long userId, Long newsId) {
-        saveUserNewsInteraction(userId, newsId, "LIKE");
-    }
-
-    // Дизлайк новости
-    public void dislikeNews(Long userId, Long newsId) {
-        saveUserNewsInteraction(userId, newsId, "DISLIKE");
-    }
-
-    // Просмотр новости
-    public void viewNews(Long userId, Long newsId) {
-        saveUserNewsInteraction(userId, newsId, "VIEW");
-    }
-
-    // Сохранение взаимодействия пользователя с новостью
-    private void saveUserNewsInteraction(Long userId, Long newsId, String action) {
-        UserNewsInteraction interaction = new UserNewsInteraction();
-        interaction.setUserId(userId);
-        interaction.setNewsId(newsId);
-        interaction.setAction(action);
-        interaction.setTimestamp(LocalDateTime.now());
-        interactionRepository.save(interaction);
-    }
 
     // Получение списка рекомендованных новостей (заглушка)
     private List<Long> getRecommendedNewsIds(Long userId, int limit) {
@@ -105,13 +66,6 @@ public class NewsService {
 
     // Преобразование NewsItem в DTO
     private NewsDto convertToDto(NewsItem newsItem) {
-        NewsDto dto = new NewsDto();
-        dto.setId(newsItem.getId());
-        dto.setTitle(newsItem.getTitle());
-        dto.setContent(newsItem.getContent());
-        dto.setLink(newsItem.getLink());
-        dto.setPublishedDate(newsItem.getPublishedDate());
-        dto.setSourceId(newsItem.getSourceId());
-        return dto;
+        return new NewsDto(newsItem);
     }
 }

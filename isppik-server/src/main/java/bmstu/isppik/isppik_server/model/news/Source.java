@@ -1,4 +1,4 @@
-package bmstu.isppik.isppik_server.model;
+package bmstu.isppik.isppik_server.model.news;
 
 import jakarta.persistence.*;
 import lombok.Data;

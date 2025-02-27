@@ -1,15 +1,15 @@
-package bmstu.isppik.isppik_server.model.id;
+package bmstu.isppik.isppik_server.model.news.id;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
-;
 
 @Data
 public class SubscriptionId implements Serializable {
 
     private Long userId;
+
     private Long sourceId;
 
     // Конструкторы

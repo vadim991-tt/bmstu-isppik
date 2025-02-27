@@ -1,7 +1,10 @@
-package mbstu.isppik.isppik_server.controller;
+package bmstu.isppik.isppik_server.controller.news;
 
-import mbstu.isppik.isppik_server.dto.NewsDto;
-import mbstu.isppik.isppik_server.service.NewsService;
+
+import bmstu.isppik.isppik_server.dto.news.NewsDto;
+import bmstu.isppik.isppik_server.helper.UserHelper;
+import bmstu.isppik.isppik_server.service.news.NewsService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,15 +12,17 @@ import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Контроллер для получение новостей.
+ * Содержит вызовы для получение новостей.
+ */
 @RestController
-@RequestMapping("/api/news")
+@RequestMapping("/api/v1/news")
+@AllArgsConstructor
 public class NewsController {
 
     private final NewsService newsService;
 
-    public NewsController(NewsService newsService) {
-        this.newsService = newsService;
-    }
 
     // Получение всех новостей с курсорной пагинацией по времени
     @GetMapping
@@ -26,7 +31,7 @@ public class NewsController {
             @RequestParam(required = false) LocalDateTime cursorDate,
             @RequestParam(defaultValue = "10") int limit) {
         
-        Long userId = getUserIdFromPrincipal(principal);
+        Long userId = UserHelper.getUserIdFromPrincipal(principal);
         
         if (cursorDate == null) {
             cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
@@ -43,7 +48,7 @@ public class NewsController {
             @RequestParam(required = false) LocalDateTime cursorDate,
             @RequestParam(defaultValue = "10") int limit) {
         
-        Long userId = getUserIdFromPrincipal(principal);
+        final Long userId = UserHelper.getUserIdFromPrincipal(principal);
         
         if (cursorDate == null) {
             cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
@@ -60,8 +65,7 @@ public class NewsController {
             @RequestParam(required = false) LocalDateTime cursorDate,
             @RequestParam(defaultValue = "10") int limit) {
         
-        Long userId = getUserIdFromPrincipal(principal);
-        
+        final Long userId = UserHelper.getUserIdFromPrincipal(principal);
         if (cursorDate == null) {
             cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
         }
@@ -70,47 +74,8 @@ public class NewsController {
         return ResponseEntity.ok(newsList);
     }
 
-    // Подписка на источник новостей
-    @PostMapping("/subscribe")
-    public ResponseEntity<?> subscribe(Principal principal, @RequestParam Long sourceId) {
-        Long userId = getUserIdFromPrincipal(principal);
-        newsService.subscribe(userId, sourceId);
-        return ResponseEntity.ok("Subscribed successfully");
-    }
 
-    // Отписка от источника новостей
-    @PostMapping("/unsubscribe")
-    public ResponseEntity<?> unsubscribe(Principal principal, @RequestParam Long sourceId) {
-        Long userId = getUserIdFromPrincipal(principal);
-        newsService.unsubscribe(userId, sourceId);
-        return ResponseEntity.ok("Unsubscribed successfully");
-    }
 
-    // Лайк новости
-    @PostMapping("/{id}/like")
-    public ResponseEntity<?> likeNews(@PathVariable Long id, Principal principal) {
-        Long userId = getUserIdFromPrincipal(principal);
-        newsService.likeNews(userId, id);
-        return ResponseEntity.ok("News liked");
-    }
 
-    // Дизлайк новости
-    @PostMapping("/{id}/dislike")
-    public ResponseEntity<?> dislikeNews(@PathVariable Long id, Principal principal) {
-        Long userId = getUserIdFromPrincipal(principal);
-        newsService.dislikeNews(userId, id);
-        return ResponseEntity.ok("News disliked");
-    }
 
-    // Просмотр новости
-    @PostMapping("/{id}/view")
-    public ResponseEntity<?> viewNews(@PathVariable Long id, Principal principal) {
-        Long userId = getUserIdFromPrincipal(principal);
-        newsService.viewNews(userId, id);
-        return ResponseEntity.ok("News viewed");
-    }
-
-    private Long getUserIdFromPrincipal(Principal principal) {
-        return Long.parseLong(principal.getName());
-    }
 }

@@ -1,10 +1,10 @@
-package bmstu.isppik.isppik_server.model;
+package bmstu.isppik.isppik_server.model.news;
 
 import lombok.Data;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import bmstu.isppik.isppik_server.model.id.UserNewsInteractionId;
+import bmstu.isppik.isppik_server.model.news.id.UserNewsInteractionId;
 
 @Entity
 @Table(name = "user_news_interactions")

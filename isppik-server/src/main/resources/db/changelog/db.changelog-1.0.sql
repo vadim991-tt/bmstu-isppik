@@ -2,9 +2,10 @@
 
 -- liquibase formatted sql
 
+
 -- changeset PanchenkoVA:CreateUsersTable
 CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,  -- BIGSERIAL для автоматической генерации ID
+    id BIGSERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     enabled BOOLEAN NOT NULL DEFAULT TRUE
@@ -12,7 +13,7 @@ CREATE TABLE users (
 
 -- changeset PanchenkoVA:CreateRolesTable
 CREATE TABLE roles (
-    id BIGSERIAL PRIMARY KEY,  -- BIGSERIAL для автоматической генерации ID
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE
 );
 

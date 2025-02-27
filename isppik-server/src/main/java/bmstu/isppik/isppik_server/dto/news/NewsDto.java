@@ -1,6 +1,7 @@
-package com.example.newsapp.dto;
+package bmstu.isppik.isppik_server.dto.news;
 
-import com.example.newsapp.model.NewsItem;
+import bmstu.isppik.isppik_server.model.news.NewsItem;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
@@ -19,7 +20,7 @@ public class NewsDto {
         this.content = newsItem.getContent();
         this.link = newsItem.getLink();
         this.publishedDate = newsItem.getPublishedDate();
-        this.sourceName = newsItem.getSource().getName();
+//        this.sourceName = newsItem.getSource().getName();
     }
 
     // Геттеры и сеттеры

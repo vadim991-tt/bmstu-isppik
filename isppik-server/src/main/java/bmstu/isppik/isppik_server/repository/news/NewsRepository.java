@@ -1,6 +1,6 @@
-package bmstu.isppik.isppik_server.repository;
+package bmstu.isppik.isppik_server.repository.news;
 
-import bmstu.isppik.isppik_server.model.NewsItem;
+import bmstu.isppik.isppik_server.model.news.NewsItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

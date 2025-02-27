@@ -1,4 +1,4 @@
-package bmstu.isppik.isppik_server.model;
+package bmstu.isppik.isppik_server.model.news;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -13,7 +13,9 @@ public class Subscription {
     private Long id;
 
     private Long userId;
+
     private String type; // "CATEGORY" или "SOURCE"
-    private Long targetId; // ID категории или источника
+
+    private Long sourceId; // ID категории или источника
 
 }

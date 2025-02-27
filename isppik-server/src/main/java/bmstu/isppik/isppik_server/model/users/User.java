@@ -1,4 +1,4 @@
-package bmstu.isppik.isppik_server.model;
+package bmstu.isppik.isppik_server.model.users;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

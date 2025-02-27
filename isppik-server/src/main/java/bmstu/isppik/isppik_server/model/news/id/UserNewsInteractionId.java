@@ -1,4 +1,4 @@
-package bmstu.isppik.isppik_server.model.id;
+package bmstu.isppik.isppik_server.model.news.id;
 
 import lombok.Data;
 
