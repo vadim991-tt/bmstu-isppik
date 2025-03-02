@@ -16,7 +16,7 @@ import java.security.Principal;
  * Содержит вызовы для взаимодействия с подписками клиен.
  */
 @RestController
-@RequestMapping("/api/v1/subscriptions")
+@RequestMapping("/api/user/v1/subscriptions")
 @AllArgsConstructor
 public class SubscriptionController {
 

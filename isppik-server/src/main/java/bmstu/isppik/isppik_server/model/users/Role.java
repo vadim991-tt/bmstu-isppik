@@ -1,34 +1,26 @@
 package bmstu.isppik.isppik_server.model.users;
 
-import org.springframework.security.core.GrantedAuthority;
-
+import bmstu.isppik.isppik_server.model.users.enums.RoleType;
 import jakarta.persistence.*;
-import java.util.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "roles")
-public class Role implements GrantedAuthority {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name; // Например, ROLE_USER, ROLE_ADMIN
-
-    @ManyToMany(mappedBy = "roles")
-    private final Set<User> users = new HashSet<>();
-
-    // Конструкторы, геттеры и сеттеры
-
-    public Role() {}
-
-    public Role(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String getAuthority() {
-        return name;
-    }
-
+    @Enumerated(EnumType.STRING)
+    @Column(unique = true, nullable = false)
+    private RoleType name;
 }
+

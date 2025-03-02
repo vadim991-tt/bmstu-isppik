@@ -26,6 +26,14 @@ CREATE TABLE users_roles (
     CONSTRAINT fk_users_roles_role FOREIGN KEY (role_id) REFERENCES roles(id)
 );
 
+-- changeset PanchenkoVA:CreateOauthClients
+CREATE TABLE oauth_clients (
+    client_id VARCHAR(100) PRIMARY KEY,
+    client_secret VARCHAR(255) NOT NULL,
+    scopes VARCHAR(255) NOT NULL,
+    grant_types VARCHAR(255) NOT NULL
+);
+
 -- changeset PanchenkoVA:CreateNewsItemsTable
 CREATE TABLE news_items (
     id BIGSERIAL PRIMARY KEY,  -- BIGSERIAL для автоматической генерации ID
@@ -43,7 +51,6 @@ CREATE TABLE sources (
     url VARCHAR(255) NOT NULL,
     type VARCHAR(50)
 );
-
 
 -- changeset PanchenkoVA:CreateSubscriptionsTable
 CREATE TABLE subscriptions (

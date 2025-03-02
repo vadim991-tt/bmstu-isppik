@@ -1,52 +1,36 @@
 package bmstu.isppik.isppik_server.model.users;
 
-import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import jakarta.persistence.*;
-import java.util.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+import java.util.Set;
+
 @Entity
 @Table(name = "users")
-public class User implements UserDetails {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Добавлено для автогенерации ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String username;
 
+    @Column(nullable = false)
     private String password;
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-        name = "users_roles",
+        name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Role> roles = new ArrayList<>();
-
-    // Конструкторы, геттеры и сеттеры
-
-    public User() {}
-
-    // Реализация методов UserDetails
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
-    }
-
-    // Остальные методы интерфейса UserDetails
-
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
-
-    
+    private Set<Role> roles;
 }

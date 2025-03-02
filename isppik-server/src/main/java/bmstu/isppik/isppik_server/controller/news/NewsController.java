@@ -17,7 +17,7 @@ import java.util.List;
  * Содержит вызовы для получение новостей.
  */
 @RestController
-@RequestMapping("/api/v1/news")
+@RequestMapping("/api/user/v1/news")
 @AllArgsConstructor
 public class NewsController {
 
