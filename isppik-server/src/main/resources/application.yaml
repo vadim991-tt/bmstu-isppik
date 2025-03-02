@@ -9,3 +9,12 @@ spring.jpa.properties.hibernate.format_sql: true
 
 #logging.level.root: debug
 
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id:  938013328315-jee25d3ikjrmkb4t063vsksqf05ibi13.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile, email
