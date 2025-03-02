@@ -20,7 +20,6 @@ public class User implements UserDetails {
 
     private String password;
 
-    private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -48,29 +47,6 @@ public class User implements UserDetails {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true; // Можно добавить логику проверки
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true; // Можно добавить логику проверки
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true; // Можно добавить логику проверки
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
-    }
 
     
 }

@@ -16,7 +16,7 @@ public class Role implements GrantedAuthority {
     private String name; // Например, ROLE_USER, ROLE_ADMIN
 
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users = new HashSet<>();
+    private final Set<User> users = new HashSet<>();
 
     // Конструкторы, геттеры и сеттеры
 

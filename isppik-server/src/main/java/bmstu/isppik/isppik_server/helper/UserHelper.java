@@ -12,7 +12,7 @@ public class UserHelper {
      * @param principal пользователь
      * @return ID пользователя
      */
-    public static Long getUserIdFromPrincipal(Principal principal) {
+    public static Long getUserIdFromPrincipal(Principal principal)   {
         return Long.parseLong(principal.getName());
     }
 
