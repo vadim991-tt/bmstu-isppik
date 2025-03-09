@@ -8,13 +8,3 @@ spring.jpa.show-sql: true
 spring.jpa.properties.hibernate.format_sql: true
 
 #logging.level.root: debug
-
-spring:
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: $CLIENT_ID
-            client-secret: $CLIENT_SECRET
-            scope: profile, email

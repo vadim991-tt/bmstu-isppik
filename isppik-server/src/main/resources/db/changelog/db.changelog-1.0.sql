@@ -5,10 +5,12 @@
 
 -- changeset PanchenkoVA:CreateUsersTable
 CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    enabled BOOLEAN NOT NULL DEFAULT TRUE
+  id BIGSERIAL PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  email VARCHAR(255),
+  phone VARCHAR(20),
+  enabled BOOLEAN DEFAULT TRUE
 );
 
 -- changeset PanchenkoVA:CreateRolesTable

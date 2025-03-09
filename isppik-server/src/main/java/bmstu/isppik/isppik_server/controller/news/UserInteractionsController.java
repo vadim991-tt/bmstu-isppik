@@ -16,7 +16,7 @@ import java.security.Principal;
  * Содержит вызовы взаимодействий клиента (лайк/дизлайк/просмотр)
  */
 @RestController
-@RequestMapping("/api/user/v1/user-interactions")
+@RequestMapping("/api/v1/user-interactions")
 @AllArgsConstructor
 public class UserInteractionsController {
 
