@@ -2,7 +2,6 @@
 
 -- liquibase formatted sql
 
-
 -- changeset PanchenkoVA:CreateUsersTable
 CREATE TABLE users (
   id BIGSERIAL PRIMARY KEY,
@@ -30,7 +29,7 @@ CREATE TABLE users_roles (
 
 -- changeset PanchenkoVA:CreateNewsItemsTable
 CREATE TABLE news_items (
-    id BIGSERIAL PRIMARY KEY,  -- BIGSERIAL для автоматической генерации ID
+    id BIGSERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     link VARCHAR(255) NOT NULL,
@@ -64,4 +63,12 @@ CREATE TABLE user_news_interactions (
     PRIMARY KEY (user_id, news_id),
     CONSTRAINT fk_user_news_interactions_user FOREIGN KEY (user_id) REFERENCES users(id),
     CONSTRAINT fk_user_news_interactions_news FOREIGN KEY (news_id) REFERENCES news_items(id)
+);
+
+-- changeset PanchenkoVA:CreateUserRecommendations
+CREATE TABLE user_recommendations (
+    user_id BIGINT,
+    news_id BIGINT,
+    predicted_rating DOUBLE PRECISION,
+    PRIMARY KEY (user_id, news_id)
 );

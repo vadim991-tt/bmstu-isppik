@@ -6,7 +6,10 @@ import bmstu.isppik.isppik_server.helper.UserHelper;
 import bmstu.isppik.isppik_server.service.news.NewsService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 import java.time.LocalDateTime;
@@ -32,12 +35,12 @@ public class NewsController {
             @RequestParam(defaultValue = "10") int limit) {
         
         Long userId = UserHelper.getUserIdFromPrincipal(principal);
-        
         if (cursorDate == null) {
             cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
         }
 
-        List<NewsDto> newsList = newsService.getAllNews(userId, cursorDate, limit);
+        final List<NewsDto> newsList = newsService.getAllNews(
+                userId, cursorDate, limit);
         return ResponseEntity.ok(newsList);
     }
 
@@ -54,7 +57,8 @@ public class NewsController {
             cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
         }
 
-        List<NewsDto> newsList = newsService.getSubscribedNews(userId, cursorDate, limit);
+        final List<NewsDto> newsList = newsService.getSubscribedNews(
+                userId, cursorDate, limit);
         return ResponseEntity.ok(newsList);
     }
 
@@ -62,7 +66,8 @@ public class NewsController {
     @GetMapping("/recommended")
     public ResponseEntity<List<NewsDto>> getRecommendedNews(
             Principal principal,
-            @RequestParam(required = false) LocalDateTime cursorDate,
+            @RequestParam(required = false)
+            LocalDateTime cursorDate,
             @RequestParam(defaultValue = "10") int limit) {
         
         final Long userId = UserHelper.getUserIdFromPrincipal(principal);
@@ -70,7 +75,8 @@ public class NewsController {
             cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
         }
 
-        List<NewsDto> newsList = newsService.getRecommendedNews(userId, cursorDate, limit);
+        final List<NewsDto> newsList = newsService.getRecommendedNews(
+                userId, cursorDate, limit);
         return ResponseEntity.ok(newsList);
     }
 
