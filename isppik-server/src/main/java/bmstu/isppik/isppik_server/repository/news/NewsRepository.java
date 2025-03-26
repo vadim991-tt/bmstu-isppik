@@ -23,7 +23,7 @@ public interface NewsRepository extends JpaRepository<NewsItem, Long> {
         ORDER BY n.published_date DESC
         LIMIT :limit
     """, nativeQuery = true)
-    List<NewsItem> findAllNewsBeforeDateExcludingViewed(
+    List<NewsItem> findAllNewsAfterDateExcludingViewed(
             @Param("userId") Long userId,
             @Param("cursorDate") LocalDateTime cursorDate,
             @Param("limit") int limit
@@ -44,7 +44,7 @@ public interface NewsRepository extends JpaRepository<NewsItem, Long> {
         ORDER BY n.published_date DESC
         LIMIT :limit
     """, nativeQuery = true)
-    List<NewsItem> findSubscribedNewsBeforeDateExcludingViewed(
+    List<NewsItem> findSubscribedNewsAfterDateExcludingViewed(
             @Param("userId") Long userId,
             @Param("cursorDate") LocalDateTime cursorDate,
             @Param("limit") int limit
@@ -65,7 +65,7 @@ public interface NewsRepository extends JpaRepository<NewsItem, Long> {
         ORDER BY ur.predicted_rating DESC
         LIMIT :limit
     """, nativeQuery = true)
-    List<NewsItem> findRecommendedNewsBeforeDate(
+    List<NewsItem> findRecommendedNewsAfterDateExcludingViewed(
             @Param("userId") Long userId,
             @Param("cursorDate") LocalDateTime cursorDate,
             @Param("limit") int limit

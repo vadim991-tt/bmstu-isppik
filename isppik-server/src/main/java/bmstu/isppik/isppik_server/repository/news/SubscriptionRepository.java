@@ -15,7 +15,4 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Subs
     // Проверка наличия подписки по пользователю и источнику
     boolean existsByUserIdAndSourceId(Long userId, Long sourceId);
 
-    // Получение ID источников, на которые подписан пользователь
-    @Query("SELECT s.sourceId FROM Subscription s WHERE s.userId = ?1")
-    List<Long> findSubscribedSourceIdsByUserId(Long userId);
 }

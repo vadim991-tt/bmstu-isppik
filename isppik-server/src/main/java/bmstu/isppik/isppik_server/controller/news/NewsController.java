@@ -27,56 +27,37 @@ public class NewsController {
     private final NewsService newsService;
 
 
-    // Получение всех новостей с курсорной пагинацией по времени
+    // Получение всех новостей
     @GetMapping
     public ResponseEntity<List<NewsDto>> getAllNews(
             Principal principal,
-            @RequestParam(required = false) LocalDateTime cursorDate,
             @RequestParam(defaultValue = "10") int limit) {
         
-        Long userId = UserHelper.getUserIdFromPrincipal(principal);
-        if (cursorDate == null) {
-            cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
-        }
-
-        final List<NewsDto> newsList = newsService.getAllNews(
-                userId, cursorDate, limit);
+        final Long userId = UserHelper.getUserIdFromPrincipal(principal);
+        final List<NewsDto> newsList = newsService.getAllNews(userId, limit);
         return ResponseEntity.ok(newsList);
     }
 
-    // Получение новостей по подпискам с курсорной пагинацией по времени
+    // Получение новостей по подпискам
     @GetMapping("/subscriptions")
     public ResponseEntity<List<NewsDto>> getSubscribedNews(
             Principal principal,
-            @RequestParam(required = false) LocalDateTime cursorDate,
             @RequestParam(defaultValue = "10") int limit) {
         
         final Long userId = UserHelper.getUserIdFromPrincipal(principal);
-        
-        if (cursorDate == null) {
-            cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
-        }
-
-        final List<NewsDto> newsList = newsService.getSubscribedNews(
-                userId, cursorDate, limit);
+        final List<NewsDto> newsList = newsService.getSubscribedNews(userId, limit);
         return ResponseEntity.ok(newsList);
     }
 
-    // Получение рекомендованных новостей с курсорной пагинацией по времени
+
+    // Получение рекомендованных новостей
     @GetMapping("/recommended")
     public ResponseEntity<List<NewsDto>> getRecommendedNews(
             Principal principal,
-            @RequestParam(required = false)
-            LocalDateTime cursorDate,
             @RequestParam(defaultValue = "10") int limit) {
         
         final Long userId = UserHelper.getUserIdFromPrincipal(principal);
-        if (cursorDate == null) {
-            cursorDate = LocalDateTime.now();  // Если курсор не указан, использовать текущее время
-        }
-
-        final List<NewsDto> newsList = newsService.getRecommendedNews(
-                userId, cursorDate, limit);
+        final List<NewsDto> newsList = newsService.getRecommendedNews(userId, limit);
         return ResponseEntity.ok(newsList);
     }
 
