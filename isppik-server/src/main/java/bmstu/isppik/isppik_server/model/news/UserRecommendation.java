@@ -4,10 +4,7 @@ import bmstu.isppik.isppik_server.model.news.id.UserRecommendationId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "user_recommendations")
@@ -15,6 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class UserRecommendation {
 
     @EmbeddedId

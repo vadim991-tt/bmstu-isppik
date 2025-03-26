@@ -1,10 +1,7 @@
 package bmstu.isppik.isppik_server.model.news.id;
 
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -13,6 +10,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class UserRecommendationId implements Serializable {
 
     private Long userId;
